@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Swan - IT111 Blog</title>
+    <style>
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #000000 40%, #1a1a1a);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            color: #b3b3b3;
+        }
+
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 0.5em 0em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0 10px #00ffff;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 37px;
+            width: 37px;
+			margin-left: 50%;
+            box-shadow: 0 0 5px #00ffff;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: rotate(360deg);
+            box-shadow: 0 0 20px #ff00ff;
+        }
+
+        nav a {
+            color: #00ffff;
+            margin: 0 1em;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 20px #ff00ff;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 3px;
+            background: #ff00ff;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+		
+        .content {
+            padding: 2em;
+            margin-top: 80px;
+            animation: fadeIn 2s forwards;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1em;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .category {
+            margin-bottom: 3em;
+            text-align: center;
+            animation: fadeUp 2s ease-in-out;
+        }
+
+        .category h2 {
+            font-size: 2em;
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px #00ffff;
+            margin-bottom: 0.5em;
+        }
+
+        .category ul {
+            max-width: 60%;
+            margin: 0 auto;
+            color: #b3b3b3;
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .category li {
+            margin: 0.5em 0;
+            padding: 0.5em;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 0 10px #ff00ff;
+        }
+
+        .category li:before {
+            content: "• ";
+            color: #00ffff;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 0.5em;
+        }
+
+        .category img {
+            margin-top: 1em;
+            max-width: 20%;
+            height: auto;
+            box-shadow: 0 0 20px #00ffff;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .category img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px #ff00ff;
+        }
+		
+		footer {
+			background-color: rgba(26, 26, 26, 0.9);
+			text-align: center;
+			padding: 1em;
+			position: fixed;
+			width: 100%;
+			bottom: 0;
+			box-shadow: 0 0 10px #00ffff;
+			color: #b3b3b3;
+    }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (min-width: 768px) {
+            .category ul {
+                max-width: 50%;
+            }
+
+            p {
+                max-width: 50%;
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="Rj_Homepage.html"><img src="eaj3.png" alt="Logo" class="logo"></a>
+        <nav>
+            <a href="Rj_Homepage.html">Home</a>
+            <a href="Rj_blog.html">IT111 Blog</a>
+            <a href="Rj_flex-page.html">Flex Page</a>
+        </nav>
+    </header>
+    <div class="content">
+        <h1>Introduction to Computing Lessons</h1>
+
+        <!-- Category 1 -->
+        <div class="category">
+            <h2>1. Computing's Impact on Industries</h2>
+            <ul>
+                <li>ACM - Association of Computing Machinery.</li>
+                <li>IEEE - Institute of Electrical and Electronics Engineers.</li>
+                <li>IAS - Institute for Advanced Study.</li>
+                <li>Computing - Solving problems or completing tasks.</li>
+                <li>Computer - A programmable device that stores, retrieves, and processes data.</li>
+            </ul>
+            <img src="l1.png" alt="Computing's Impact on Industries">
+        </div>
+
+        <!-- Category 2 -->
+        <div class="category">
+            <h2>2. Information Processing Cycle</h2>
+            <ul>
+                <li>Data vs Information:</li>
+                <li>Data - Raw representation of facts and concepts.</li>
+                <li>Information - Organized and meaningful data.</li>
+                <li>Data Processing - Organized and systematic manipulation of information.</li>
+                <li>Good information is relevant, complete, cost-effective, presentable, accurate, and timely.</li>
+            </ul>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="category">
+            <h2>3. Computer Systems Concepts of Computer Security</h2>
+            <ul>
+                <li>Systematic interaction between entities.</li>
+                <li>Four components of a computer system: Hardware, Software, Peopleware, and Dataware.</li>
+                <li>Data is raw; information is organized.</li>
+                <li>Topics: Data security, information security, cybercrimes, and cybercriminals.</li>
+            </ul>
+            <img src="l3.png" alt="Computer Security Concepts">
+        </div>
+
+        <!-- Category 4 -->
+        <div class="category">
+            <h2>4. HTML and CSS</h2>
+            <ul>
+                <li>HTML - HyperText Markup Language.</li>
+                <li>The standard markup language for creating web pages.</li>
+                <li>Describes the structure of web pages using markup.</li>
+                <li>HTML Elements are building blocks of web pages, defined by tags.</li>
+                <li>Tags label content like headings, paragraphs, tables, etc.</li>
+                <li>Browsers do not display HTML tags but use them to render content.</li>
+                <li>CSS - A simple design language used to style HTML elements.</li>
+                <li>CSS allows modifying colors, sizes, backgrounds, layouts, etc.</li>
+                <li>External stylesheets are stored in `.css` files.</li>
+                <li>CSS can be applied using Inline, Internal, or External methods.</li>
+                <li>CSS Selectors are used to target specific HTML elements for styling.</li>
+            </ul>
+            <img src="l4.png" alt="HTML and CSS Example">
+			<img src="l4.2.png" alt="HTML and CSS Example">
+        </div>
+		
+		<!-- Category 5 -->
+        <div class="category">
+            <h2>Lesson 5. The internet & world wide web</h2>
+            <ul>
+                <li>The internet or simply the net, is the oublicly available worldwide system interconnented.</li>
+                <li>Computer network that transmit data, standardize.</li>
+            </ul>
+            <img src="l5.png" alt="The internet & world wide web">
+        </div>
+
+        <h2>My favorite lesson is the current one on HTML and CSS because it unleashes creativity and enhances my problem-solving skills. It's exciting to see my ideas take shape on the web.</h2>
+    <br><br><br><br><br><br><br><br>
+	
+	</div>
+    <footer>
+        &copy; 2024 Rj Binag
+    </footer>
+</body>
+</html>

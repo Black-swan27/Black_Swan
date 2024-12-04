@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Black Swan - Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #00ffff;
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        header {
+            background-color: rgba(26, 26, 26, 0.9);
+            padding: 0.5em 0em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 0 10px #00ffff;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .logo {
+            height: 37px;
+            width: 37px;
+            margin-left: 50%;
+            box-shadow: 0 0 5px #00ffff;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: rotate(360deg);
+            box-shadow: 0 0 20px #ff00ff;
+        }
+
+        nav a {
+            color: #00ffff;
+            margin: 0 1em;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            position: relative;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 20px #ff00ff;
+            transform: scale(1.1);
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 3px;
+            background: #ff00ff;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .content {
+            padding: 2em;
+            margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInUp 2s forwards;
+            text-align: center;
+        }
+
+        .info {
+            max-width: 80%;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .info h1 {
+            font-size: 2em;
+            background: linear-gradient(90deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5em;
+            text-shadow: 0 0 20px #00ffff;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #00ffff;
+            width: fit-content;
+            animation: typing 3.5s steps(40, end), blink 0.7s step-end infinite;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .info h1:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 30px #ff00ff;
+        }
+
+        .info p, .info li {
+            font-size: 1.2em;
+            color: #b3b3b3;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInText 1.5s ease-in-out forwards;
+        }
+
+        .info p:nth-of-type(1) {
+            animation-delay: 1s;
+        }
+
+        .info p:nth-of-type(2) {
+            animation-delay: 1.5s;
+        }
+
+        .info li {
+            animation-delay: 2s;
+        }
+
+        .info h3 {
+            font-size: 2em;
+            color: #00ffff;
+            text-shadow: 0 0 20px #00ffff;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .info h3:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 30px #ff00ff;
+        }
+
+        .profile {
+            margin-top: 20px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            transition: transform 0.6s ease-in-out;
+            box-shadow: 0 0 20px #00ffff;
+        }
+
+        .profile:hover {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 0 40px #ff00ff;
+        }
+
+        .fblogo, .iglogo {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            margin-top: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .fblogo:hover, .iglogo:hover {
+            transform: scale(1.3);
+            box-shadow: 0 0 15px #ff00ff;
+        }
+
+        a {
+            color: #00ffff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 20px #ff00ff;
+        }
+		
+		.video-style {
+			box-shadow: 0 0 20px #00ffff;
+			border-radius: 10px;
+			margin-left: 100px;
+			transition: all 0.3s ease-in-out;
+		}
+		
+		.video-style:hover{
+			transform: scale(1.2);
+			color: #ff00ff;
+            box-shadow: 0 0 20px #ff00ff;
+		}
+
+        footer {
+            background-color: rgba(26, 26, 26, 0.9);
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 0 10px #00ffff;
+            color: #b3b3b3;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+		
+		@media (min-width: 768px) {
+            .content {
+                flex-direction: row;
+                text-align: left;
+            }
+
+            .info {
+                max-width: 60%;
+            }
+
+            .info h1 {
+                font-size: 4em;
+            }
+
+            .info p, .info li {
+                font-size: 1.5em;
+            }
+
+            .profile {
+                margin-left: 100px;
+                width: 300px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="Rj_Homepage.html"><img src="eaj3.png" alt="Logo" class="logo"></a>
+        <nav>
+            <a href="Rj_Homepage.html">Home</a>
+            <a href="Rj_blog.html">IT111 Blog</a>
+            <a href="Rj_flex-page.html">Flex Page</a>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="info">
+            <h1>Hello, It's me Rj Binag</h1>
+            <p>I am a BSEMC-DAT student in Bukidnon State University.</p>
+            <p>"Assemble your philosophies from fragments of diverse memories"</p>
+            <h3>Introduction</h3>
+            <ul>
+                <li>Hobbies: Drawing, writing, reading, gaming.</li>
+                <li>Skills: Sarcasm.</li>
+            </ul>
+            <h3>Social Media</h3>
+            <a href="https://www.facebook.com/rj.binag.2024"><img src="fb2.png" alt="Facebook Logo" class="fblogo"></a> 
+            <a href="https://www.facebook.com/rj.binag.2024">Rj Binag</a>
+            <br><br>
+            <a href="https://www.instagram.com/black.swan9_?igsh=MWNrdHc3cnJIYzB2dg"><img src="ig2.png" alt="Instagram Logo" class="iglogo"></a> 
+            <a href="https://www.instagram.com/black.swan9_?igsh=MWNrdHc3cnJIYzB2dg">black.swan9_</a>
+        </div>
+        <img src="dp.jpg" alt="Profile Picture" class="profile">
+		<br><br><br><br><br><br><br><br>
+        
+        <!-- Video Section -->
+		<video controls width="300" class="video-style">
+			<source src="vdd.mp4" type="video/mp4">
+		</video>
+    </div>
+    <footer>
+        &copy; 2024 Rj Binag
+    </footer>
+</body>
+</html>

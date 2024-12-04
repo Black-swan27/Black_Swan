@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Flex Page</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #00ffff;
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    header {
+      background-color: rgba(26, 26, 26, 0.9);
+      padding: 0.5em 0em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 0 10px #00ffff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .logo {
+      height: 37px;
+      width: 37px;
+      margin-left: 50%;
+      box-shadow: 0 0 5px #00ffff;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: rotate(360deg);
+      box-shadow: 0 0 20px #ff00ff;
+    }
+
+    nav a {
+      color: #00ffff;
+      margin: 0 1em;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      text-transform: uppercase;
+      position: relative;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff00ff;
+      text-shadow: 0 0 20px #ff00ff;
+      transform: scale(1.1);
+    }
+
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 3px;
+      background: #ff00ff;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .content {
+      margin-top: 80px;
+      padding: 2em;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+
+    .category {
+      margin: 80px 20px 20px;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .category h2 {
+      font-size: 2em;
+      background: linear-gradient(90deg, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      margin-bottom: 1em;
+      transition: transform 0.3s, text-shadow 0.3s;
+    }
+
+    .category h2:hover {
+      transform: scale(1.1);
+      text-shadow: 0 0 30px #ff00ff;
+    }
+
+    .category p {
+      color: #b3b3b3;
+      font-size: 1.2em;
+      margin-bottom: 1em;
+    }
+
+    .media {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .media img,
+    .media video {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ffff;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .media img:hover,
+    .media video:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 30px #ff00ff;
+    }
+
+    footer {
+      background-color: rgba(26, 26, 26, 0.9);
+      text-align: center;
+      padding: 1em;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      box-shadow: 0 0 10px #00ffff;
+      color: #b3b3b3;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ffff;
+    }
+
+    .modal .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2em;
+      color: #00ffff;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .modal .arrow.left {
+      left: 5%;
+    }
+
+    .modal .arrow.right {
+      right: 5%;
+    }
+
+    .modal .close {
+      position: absolute;
+      top: 10%;
+      right: 5%;
+      font-size: 2em;
+      color: #ff00ff;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .media img,
+      .media video {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="Rj_Homepage.html"><img src="eaj3.png" alt="Logo" class="logo"></a>
+    <nav>
+      <a href="Rj_Homepage.html">Home</a>
+      <a href="Rj_blog.html">IT111 Blog</a>
+      <a href="Rj_flex-page.html">Flex Page</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <!-- Drawings Section -->
+    <div class="category">
+      <h2>Drawings</h2>
+      <p>These are the collections of my favorite digital artworks.</p>
+      <div class="media">
+        <img src="draw1.jpg" alt="Drawing 1" class="clickable">
+        <img src="draw2.jpg" alt="Drawing 2" class="clickable">
+        <img src="draw3.jpg" alt="Drawing 3" class="clickable">
+        <img src="draw4.jpg" alt="Drawing 4" class="clickable">
+        <img src="draw5.jpg" alt="Drawing 5" class="clickable">
+      </div>
+    </div>
+
+    <!-- Poems Section -->
+    <div class="category">
+      <h2>Poems</h2>
+      <p>These are some of my recent poems.</p>
+      <div class="media">
+        <img src="poem1.jpg" alt="Poem 1" class="clickable">
+        <img src="poem2.jpg" alt="Poem 2" class="clickable">
+        <img src="poem3.jpg" alt="Poem 3" class="clickable">
+        <img src="poem4.jpg" alt="Poem 4" class="clickable">
+        <img src="poem5.jpg" alt="Poem 5" class="clickable">
+        <img src="poem6.jpg" alt="Poem 6" class="clickable">
+      </div>
+    </div>
+
+    <!-- Animations Section -->
+    <div class="category">
+      <h2>Animations</h2>
+      <p>Animations I have made.</p>
+      <div class="media">
+        <a href="https://youtu.be/JKQWlbQdFYs" target="_blank">
+          <img src="ball.png" alt="Animation 1">
+        </a>
+        <a href="https://youtu.be/jWcLzdtfS_U?si=fcEXaWTR_yBdf4eG" target="_blank">
+          <img src="dash.png" alt="Animation 2">
+        </a>
+        <a href="https://youtu.be/tv94JyXKu-Y" target="_blank">
+          <img src="blitz.png" alt="Animation 3">
+        </a>
+        <a href="https://youtu.be/4S8yyDN4Aug" target="_blank">
+          <img src="punch.png" alt="Animation 4">
+        </a>
+      </div>
+    </div>
+
+    <!-- Research Section -->
+    <div class="category">
+      <h2>Research</h2>
+      <p>DOTES Research Congress 2024</p>
+      <div class="media">
+        <img src="rs.jpg" alt="Research 1" class="clickable">
+        <img src="rs2.jpg" alt="Research 2" class="clickable">
+      </div>
+    </div>
+  </div>
+  <br><br><br><br><br><br><br>
+
+  <footer>
+    &copy; 2024 Rj Binag
+  </footer>
+  
+  <!-- Modal -->
+  <div class="modal" id="imageModal">
+    <span class="arrow left" id="prevImage">&#8592;</span>
+    <img src="" alt="Full-size image" id="modalImage">
+    <span class="arrow right" id="nextImage">&#8594;</span>
+    <span class="close" id="closeModal">&times;</span>
+  </div>
+
+  <script>
+    // Modal Functionality
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    const closeModal = document.getElementById("closeModal");
+    const prevImage = document.getElementById("prevImage");
+    const nextImage = document.getElementById("nextImage");
+    
+    let images = [];
+    let currentIndex = 0;
+
+    // Open modal
+    document.querySelectorAll(".clickable").forEach((img, index) => {
+      images.push(img);
+      img.addEventListener("click", () => {
+        currentIndex = index;
+        modalImage.src = img.src;
+        modal.style.display = "flex";
+        if (img.classList.contains("gif")) {
+          img.src = img.src; // Reset GIF to play on click
+        }
+      });
+    });
+
+    // Close modal
+    closeModal.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    // Navigate images
+    prevImage.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      modalImage.src = images[currentIndex].src;
+    });
+
+    nextImage.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      modalImage.src = images[currentIndex].src;
+    });
+
+    // Close modal on outside click
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
